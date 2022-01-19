@@ -1,0 +1,572 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&family=Roboto+Condensed&display=swap');
+
+:root {
+    --color1: #155db1;
+    --color2: #2196f3;
+    --color3: #E7E7EB;
+    --color4: #A09FB1;
+    --color5: #6E707A;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: var(--color3);
+    font-family: Raleway;
+    font-weight: 500;
+}
+
+html, body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* LOADER */
+.lds-ellipsis {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+}
+
+.lds-ellipsis div {
+    position: absolute;
+    /* top: 33px; */
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background: #fff;
+    animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+
+.lds-ellipsis div:nth-child(1) {
+    left: 8px;
+    animation: lds-ellipsis1 0.6s infinite;
+}
+
+.lds-ellipsis div:nth-child(2) {
+    left: 8px;
+    animation: lds-ellipsis2 0.6s infinite;
+}
+
+.lds-ellipsis div:nth-child(3) {
+    left: 32px;
+    animation: lds-ellipsis2 0.6s infinite;
+}
+
+.lds-ellipsis div:nth-child(4) {
+    left: 56px;
+    animation: lds-ellipsis3 0.6s infinite;
+}
+
+@keyframes lds-ellipsis1 {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes lds-ellipsis3 {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(0);
+    }
+}
+
+@keyframes lds-ellipsis2 {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(24px, 0);
+    }
+}
+
+.loader {
+    width: 100%;
+    height: 100%;
+    background-color: var(--color1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    margin: auto;
+    z-index: 1;
+    clip-path: circle(150% at 100% 0);
+    transition: clip-path .8s ease-in;
+}
+
+.loaderClose {
+    clip-path: circle(0% at 100% 0%);
+}
+
+/* ASIDE */
+.aside {
+    height: 100%;
+    flex-basis: 25%;
+    background-color: var(--color1);
+    position: relative;
+}
+
+.menu {
+    height: 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 1.5rem;
+}
+
+.buscar {
+    height: 40px;
+    width: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 1.2rem;
+    position: relative;
+}
+
+.mensaje-error {
+    position: absolute;
+    bottom: -20px;
+    left: 10px;
+    color: var(--color3);
+    font-size: .7rem;
+    display: none;
+}
+
+.input {
+    height: 40px;
+    flex-basis: 80%;
+    border: none;
+    padding-left: 1rem;
+    color: var(--color5);
+    border-bottom-left-radius: 1.2rem;
+    border-top-left-radius: 1.2rem;
+    background-color: var(--color3);
+}
+
+.input:focus {
+    outline: none;
+}
+
+.input::placeholder {
+    color: var(--color5);
+    font-weight: 500;
+}
+
+.submit {
+    height: 40px;
+    flex-basis: 20%;
+    border: none;
+    cursor: pointer;
+    border-bottom-right-radius: 1.2rem;
+    border-top-right-radius: 1.2rem;
+}
+
+.submit i {
+    color: var(--color5);
+    font-size: 1rem;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color3);
+    border-bottom-right-radius: 1.2rem;
+    border-top-right-radius: 1.2rem;
+}
+
+.submit i:hover{
+    color: var(--color2);
+}
+
+.ubicacion-usuario {
+    width: 40px;
+    height: 40px;
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: transparent;
+}
+
+.ubicacion-usuario i {
+    font-size: 1rem;
+    color: var(--color3);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    border: 2px solid var(--color3);
+    background-color: transparent;
+}
+
+.ubicacion-usuario i:hover{
+    color: var(--color5);
+    background-color: var(--color3);
+    transition: background-color .1s ease-in-out;
+}
+
+.imagen {
+    height: 40%;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fondo-imagen {
+    position: absolute;
+    margin: auto;
+    opacity: .05;
+    width: 130%;
+    height: 100%;
+}
+
+.imagen-principal {
+    width: 80%;
+}
+
+.informacion {
+    height: 50%;
+}
+
+.temperatura {
+    font-size: 144px;
+    line-height: 169px;
+    text-align: center;
+}
+
+.temperatura span {
+    font-size: 70px;
+    color: var(--color3);
+    font-weight: 400;
+}
+
+.tiempo {
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 42px;
+    text-align: center;
+    color: var(--color3);
+}
+
+.fechaylugar {
+    position: absolute;
+    bottom: 1.5rem;
+    margin: auto;
+    left: 0;
+    right: 0;
+}
+
+.fecha {
+    font-size: 1rem;
+    line-height: 21px;
+    text-align: center;
+    color: var(--color3);
+    margin-top: 1rem;
+}
+
+.lugar {
+    font-size: 1rem;
+    line-height: 21px;
+    text-align: center;
+    color: var(--color3);
+}
+
+.lugar i {
+    margin-right: 5px;
+    color: var(--color3);
+}
+
+/* CONTENIDO */
+.contenido {
+    height: 100%;
+    flex-basis: 75%;
+    background-color: var(--color2);
+    padding: 1.5rem 15%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.proximos-dias {
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.proximos-dias > div {
+    flex-basis: 20%;
+    height: 100%;
+    background-color: var(--color1);
+    padding: 1rem;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.fecha-prox {
+    position: absolute;
+    top: 1rem;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.imagen-prox {
+    width: 100%;
+}
+
+.temp-max-min {
+    width: 100%;
+    position: absolute;
+    bottom: 1rem;
+    left: 0;
+    right: 0;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.min {
+    color: var(--color4);
+}
+
+.datos-hoy {
+    width: 100%;
+    height: 70%;
+}
+
+.datos-hoy h4 {
+    height: 15%;
+    font-weight: bold;
+    font-size: 24px;
+    grid-area: titulo;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.grid-datos {
+    width: 100%;
+    height: 85%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:    "uno dos"
+                            "tres cuatro";
+    grid-gap: 2.5rem;
+}
+
+.uno {
+    grid-area: uno;
+    background-color: var(--color1);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.dos {
+    grid-area: dos;
+    background-color: var(--color1);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.tres {
+    grid-area: tres;
+    background-color: var(--color1);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.cuatro {
+    grid-area: cuatro;
+    background-color: var(--color1);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* .datos_titulo {
+    margin-bottom: 1rem;
+} */
+
+.uno > span, .dos > span, .tres > span, .cuatro > span {
+    font-weight: bold;
+    font-size: 64px;
+    line-height: 75px;
+}
+
+.medida {
+    font-size: 2rem;
+    margin-left: 5px;
+    font-weight: 400;
+}
+
+.footer {
+    width: 100%;
+    height: 40px;
+    font-size: 14px;
+    line-height: 17px;
+    color: var(--color3);
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    font-weight: 700;
+}
+
+.footer a {
+    text-decoration: underline;
+    color: var(--color3);
+    font-weight: 700;
+    margin: 0 4px;
+}
+
+@media screen and (max-width: 550px){
+    .loader {
+        width: 100vw;
+        height: 100vh;
+    }
+
+    html, body {
+        width: 100%;
+        height: auto;
+        flex-direction: column;
+        overflow-x: hidden;
+    }
+
+    .aside {
+        height: auto;
+        width: 100%;
+        flex-basis: auto;
+        background-color: var(--color1);
+        position: relative;
+        padding-bottom: 1rem;
+    }
+
+    .imagen {
+        height: auto;
+    }
+
+    .imagen-principal {
+        width: 60%;
+    }
+    
+    .informacion {
+        height: auto;
+    }
+    
+    .temperatura {
+        font-size: 100px;
+        line-height: 100px;
+    }
+    
+    .temperatura span {
+        font-size: 50px;
+    }
+    
+    .tiempo {
+        font-size: 24px;
+        line-height: 24px;
+    }
+
+    .fechaylugar {
+        position: static;
+        margin-top: 3rem;
+    }
+
+    .contenido {
+        height: auto;
+        width: 100%;
+        flex-basis: auto;
+        padding: 1.5rem 5%;
+    }
+
+    .proximos-dias {
+        width: 100%;
+        height: auto;
+        flex-wrap: wrap;
+        order: 2;
+        margin-top: 1rem;
+    }
+    
+    .proximos-dias > div {
+        flex-basis: auto;
+        width: calc(50% - .5rem);
+    }
+
+    .datos-hoy {
+        width: 100%;
+        height: auto;
+        order: 1;
+    }
+    
+    .datos-hoy h4 {
+        height: auto;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 1rem;
+    }
+    
+    .grid-datos {
+        width: 100%;
+        height: auto;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+        grid-template-areas:    "uno"
+                                "dos"
+                                "tres"
+                                "cuatro";
+        grid-gap: 1rem;
+    }
+
+    .uno, .dos, .tres, .cuatro {
+        gap: .5rem;
+    }
+
+    .footer {
+        display: block;
+        text-align: center;
+        height: auto;
+        order: 3;
+        margin-top: 1rem;
+    }
+}
+
