@@ -141,7 +141,7 @@ html, body {
     left: 10px;
     color: var(--color3);
     font-size: .7rem;
-    display: none;
+    visibility: hidden;
 }
 
 .input {
@@ -472,16 +472,24 @@ html, body {
     }
 
     .aside {
-        height: auto;
+        height: 100vh;
         width: 100%;
         flex-basis: auto;
         background-color: var(--color1);
-        position: relative;
-        padding-bottom: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .menu {
+        flex-basis: 40px;
+        width: 100%;
     }
 
     .imagen {
-        height: auto;
+        flex-basis: 1fr;
+        width: 100%;
     }
 
     .imagen-principal {
@@ -489,7 +497,13 @@ html, body {
     }
     
     .informacion {
-        height: auto;
+        flex-basis: 1fr;
+        width: 100%;
+        padding-bottom: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
     }
     
     .temperatura {
@@ -508,9 +522,13 @@ html, body {
 
     .fechaylugar {
         position: static;
-        margin-top: 3rem;
+        margin: 0;
     }
 
+    .fecha {
+        margin-top: .5rem;
+    }
+    
     .contenido {
         height: auto;
         width: 100%;

@@ -19,4 +19,5 @@ function datosLocalizacion(event) {
     const localizacionInicial = input.value
     window.location.href = 'tiempo.html?localizacionInicial=' + localizacionInicial
     event.preventDefault()
+    localizacion.reset()
 }
